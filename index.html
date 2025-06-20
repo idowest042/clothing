@@ -49,6 +49,7 @@
             text-transform: uppercase;
             letter-spacing: 3px;
             color: var(--primary);
+            font-family: 'Playfair Display', serif; /* Luxury font */
         }
 
         .logo span {
@@ -58,6 +59,18 @@
         .nav-links {
             display: flex;
             gap: 2rem;
+        }
+
+        .nav-links.active {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background-color: var(--secondary);
+            padding: 2rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
         .nav-links a {
@@ -76,6 +89,7 @@
         .hamburger {
             display: none;
             cursor: pointer;
+            font-size: 1.5rem;
         }
 
         /* Hero Section */
@@ -100,6 +114,7 @@
             line-height: 1.1;
             margin-bottom: 1.5rem;
             text-transform: uppercase;
+            font-family: 'Playfair Display', serif;
         }
 
         .hero p {
@@ -135,7 +150,7 @@
             transform: translateY(-50%);
             width: 45%;
             height: 80%;
-            background-image: url('https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-image: url('https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80');
             background-size: cover;
             background-position: center;
             border-radius: 20px;
@@ -158,6 +173,7 @@
             font-weight: 800;
             text-transform: uppercase;
             margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
         }
 
         .section-title p {
@@ -208,6 +224,7 @@
         .collection-overlay h3 {
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
+            font-family: 'Playfair Display', serif;
         }
 
         .collection-overlay p {
@@ -245,6 +262,7 @@
             font-weight: 800;
             margin-bottom: 1.5rem;
             text-transform: uppercase;
+            font-family: 'Playfair Display', serif;
         }
 
         .about-content p {
@@ -266,6 +284,7 @@
             font-weight: 800;
             margin-bottom: 1.5rem;
             text-transform: uppercase;
+            font-family: 'Playfair Display', serif;
         }
 
         .cta-section p {
@@ -277,6 +296,29 @@
         .cta-button.white {
             background-color: var(--secondary);
             color: var(--primary);
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 999;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.1);
         }
 
         /* Footer */
@@ -302,6 +344,7 @@
             font-size: 1.2rem;
             margin-bottom: 1.5rem;
             font-weight: 600;
+            font-family: 'Playfair Display', serif;
         }
 
         .footer-column ul {
@@ -403,13 +446,13 @@
                 padding-bottom: 5rem;
             }
 
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
             .hero-content {
                 width: 100%;
                 margin-bottom: 3rem;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
             }
 
             .hero p {
@@ -430,9 +473,14 @@
             }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/1234567890" class="whatsapp-button" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <!-- Header -->
     <header>
         <div class="logo">ORIA <span>HQ</span></div>
@@ -449,9 +497,14 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Bold Fashion for the Modern Era</h1>
-            <p>Discover Oria HQ's exclusive collections that blend contemporary design with streetwear edge. Made for those who dare to stand out.</p>
-            <a href="#collections" class="cta-button">View Collections</a>
+            <h1>Streetwear Reinvented</h1>
+            <p>Oria HQ's limited-edition pieces blend urban edge with luxury craftsmanship. Designed for those who refuse to blend in.</p>
+            <a href="#collections" class="cta-button">Shop The Drop</a>
+            <div style="margin-top: 1.5rem;">
+                <a href="https://instagram.com/oriahq" class="cta-button white" style="padding: 0.7rem 1.5rem; font-size: 0.8rem;" target="_blank">
+                    <i class="fab fa-instagram" style="margin-right: 8px;"></i> DM to Order
+                </a>
+            </div>
         </div>
         <div class="hero-image floating"></div>
     </section>
@@ -459,29 +512,29 @@
     <!-- Collections -->
     <section class="collections" id="collections">
         <div class="section-title">
-            <h2>Our Collections</h2>
-            <p>Explore our latest drops and timeless pieces that define the Oria HQ aesthetic</p>
+            <h2>Latest Drops</h2>
+            <p>Limited quantities available. Message us to reserve your pieces.</p>
         </div>
         <div class="collection-grid">
             <div class="collection-item">
-                <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Urban Edge Collection">
+                <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Oria HQ Signature Jacket">
                 <div class="collection-overlay">
-                    <h3>Urban Edge</h3>
-                    <p>Streetwear meets high fashion</p>
+                    <h3>Signature Jacket</h3>
+                    <p>Limited Edition • $249</p>
                 </div>
             </div>
             <div class="collection-item">
-                <img src="https://images.unsplash.com/photo-1554412933-514a83d2f3c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80" alt="Monochrome Series">
+                <img src="https://images.unsplash.com/photo-1554412933-514a83d2f3c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80" alt="Oria HQ Distressed Denim">
                 <div class="collection-overlay">
-                    <h3>Monochrome Series</h3>
-                    <p>Timeless black & white pieces</p>
+                    <h3>Distressed Denim</h3>
+                    <p>Hand-finished • $189</p>
                 </div>
             </div>
             <div class="collection-item">
-                <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Future Classics">
+                <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Oria HQ Logo Tee">
                 <div class="collection-overlay">
-                    <h3>Future Classics</h3>
-                    <p>Modern takes on iconic styles</p>
+                    <h3>Logo Tee</h3>
+                    <p>Premium Cotton • $89</p>
                 </div>
             </div>
         </div>
@@ -493,19 +546,28 @@
             <img src="https://images.unsplash.com/photo-1483181957632-8bda974cbc91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="About Oria HQ">
         </div>
         <div class="about-content">
-            <h2>About Oria HQ</h2>
-            <p>Founded in 2020, Oria HQ emerged from a passion for bold design and uncompromising quality. We believe fashion should empower individuals to express their unique identity.</p>
-            <p>Our collections are crafted with attention to detail, using premium materials that stand the test of time while making a statement today.</p>
-            <p>Based in New York but inspired globally, we blend urban influences with contemporary aesthetics to create pieces that resonate with the modern wardrobe.</p>
-            <a href="#contact" class="cta-button">Get In Touch</a>
+            <h2>Our Ethos</h2>
+            <p>Oria HQ was born from the streets but crafted for those who demand more. Each piece is designed in our NYC studio with meticulous attention to detail.</p>
+            <p>We reject fast fashion. Our collections are produced in limited runs using premium materials that age beautifully.</p>
+            <p>When you wear Oria HQ, you're not just wearing clothes—you're wearing a mindset.</p>
+            <a href="https://wa.me/1234567890" class="cta-button" target="_blank">
+                <i class="fab fa-whatsapp" style="margin-right: 8px;"></i> Chat With Us
+            </a>
         </div>
     </section>
 
     <!-- CTA Section -->
     <section class="cta-section">
-        <h2>Ready to Elevate Your Style?</h2>
-        <p>DM us on Instagram to shop our latest collections or inquire about custom pieces.</p>
-        <a href="https://instagram.com/oriahq" class="cta-button white" target="_blank">Shop Now</a>
+        <h2>Ready to Wear Bold?</h2>
+        <p>Our pieces sell out quickly. Message us now to check availability or request custom sizing.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center;">
+            <a href="https://wa.me/1234567890" class="cta-button white" target="_blank">
+                <i class="fab fa-whatsapp" style="margin-right: 8px;"></i> WhatsApp
+            </a>
+            <a href="https://instagram.com/oriahq" class="cta-button" target="_blank">
+                <i class="fab fa-instagram" style="margin-right: 8px;"></i> Instagram
+            </a>
+        </div>
     </section>
 
     <!-- Footer -->
@@ -513,7 +575,7 @@
         <div class="footer-content">
             <div class="footer-column">
                 <h3>Oria HQ</h3>
-                <p>Bold fashion for those who dare to stand out from the crowd.</p>
+                <p>Streetwear with intention. Crafted for the bold.</p>
                 <div class="social-links">
                     <a href="https://instagram.com/oriahq" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a href="https://twitter.com/oriahq" target="_blank"><i class="fab fa-twitter"></i></a>
@@ -521,17 +583,25 @@
                 </div>
             </div>
             <div class="footer-column">
-                <h3>Quick Links</h3>
+                <h3>Shop</h3>
                 <ul>
-                    <li><a href="#collections">Collections</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#collections">New Arrivals</a></li>
+                    <li><a href="#collections">Bestsellers</a></li>
+                    <li><a href="#collections">Archive</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Help</h3>
+                <ul>
+                    <li><a href="#">Sizing Guide</a></li>
+                    <li><a href="#">Order Status</a></li>
+                    <li><a href="#">Returns</a></li>
                 </ul>
             </div>
             <div class="footer-column">
                 <h3>Contact</h3>
                 <ul>
-                    <li>hello@oriahq.com</li>
+                    <li>orders@oriahq.com</li>
                     <li>+1 (555) 123-4567</li>
                     <li>New York, NY</li>
                 </ul>
@@ -551,10 +621,15 @@
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                if(this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
             });
         });
 
